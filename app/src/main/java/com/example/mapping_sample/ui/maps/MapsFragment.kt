@@ -1,8 +1,9 @@
 package com.example.mapping_sample.ui.maps
 
-import android.Manifest
+import android.Manifest.permission.ACCESS_COARSE_LOCATION
 import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.content.pm.PackageManager
+import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.location.Location
 import android.os.Bundle
 import android.view.View
@@ -39,7 +40,7 @@ class MapsFragment : Fragment(R.layout.fragment_maps), GoogleMap.OnMyLocationBut
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this.context)
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
     }
 
     override fun onDestroyView() {
@@ -49,16 +50,12 @@ class MapsFragment : Fragment(R.layout.fragment_maps), GoogleMap.OnMyLocationBut
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        mMap.setOnMyLocationButtonClickListener(this);
-        mMap.setOnMyLocationClickListener(this);
+        mMap.setOnMyLocationButtonClickListener(this)
+        mMap.setOnMyLocationClickListener(this)
         enableMyLocation()
 
-        if (context?.let {
-                ActivityCompat.checkSelfPermission(it, ACCESS_FINE_LOCATION)
-            } != PackageManager.PERMISSION_GRANTED &&
-            context?.let {
-                ActivityCompat.checkSelfPermission(it, Manifest.permission.ACCESS_COARSE_LOCATION)
-            } != PackageManager.PERMISSION_GRANTED
+        if (ActivityCompat.checkSelfPermission(requireContext(), ACCESS_FINE_LOCATION) != PERMISSION_GRANTED &&
+            ActivityCompat.checkSelfPermission(requireContext(), ACCESS_COARSE_LOCATION) != PERMISSION_GRANTED
         ) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
