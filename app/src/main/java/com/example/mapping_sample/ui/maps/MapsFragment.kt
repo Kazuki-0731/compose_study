@@ -22,17 +22,14 @@ class MapsFragment : Fragment(R.layout.fragment_maps), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var mapsViewModel: MapsViewModel
     private var _binding: FragmentMapsBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
-//    override fun onCreateView(
-//        inflater: LayoutInflater,
-//        container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val mapFragment = childFragmentManager
+            .findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
+
+        // バインディング(いまのところ利用なし)
 //        mapsViewModel =
 //            ViewModelProvider(this).get(MapsViewModel::class.java)
 //        _binding = FragmentMapsBinding.inflate(inflater, container, false)
@@ -41,11 +38,6 @@ class MapsFragment : Fragment(R.layout.fragment_maps), OnMapReadyCallback {
 //        mapsViewModel.text.observe(viewLifecycleOwner, Observer {
 //            textView.text = it
 //        })
-//        return root
-//        return binding.root
-        val mapFragment = childFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
     }
 
     override fun onDestroyView() {
@@ -62,10 +54,3 @@ class MapsFragment : Fragment(R.layout.fragment_maps), OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
 }
-
-//class MapsFragment : SupportMapFragment(){
-//    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-//        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_maps, container, false)
-//    }
-//}
