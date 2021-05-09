@@ -10,10 +10,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
 open class BaseActivity : AppCompatActivity(){
-    // static field
-    companion object {
-        private val EXAMPLE_COUNTER = intPreferencesKey("example_counter")
-    }
     private val context = this
 
     // define
@@ -40,4 +36,8 @@ open class BaseActivity : AppCompatActivity(){
         }
     }
 
+    // static field
+    companion object {
+        private val EXAMPLE_COUNTER = intPreferencesKey("example_counter")
+    }
 }
