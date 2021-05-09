@@ -36,13 +36,29 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    def lifecycle_version = "2.3.1"
 
+    // standard lib
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.3.0'
-    implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.+'
+    // google map
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+    // speed up for start-up
+    // 肥大化して来たら使えそうなライブラリ
+//    implementation "androidx.startup:startup-runtime:1.0.0"
+    // viewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    // DataStore(次世代キャッシュ)
+    implementation "androidx.datastore:datastore-preferences:1.0.0-beta01"
+    // coroutine
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3"
+
+    // test module
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
