@@ -34,8 +34,6 @@ class DashboardFragment : Fragment() {
     private lateinit var dashboardViewModel: DashboardViewModel
     private var _binding: FragmentDashboardBinding? = null
     private val binding get() = _binding!!
-//    private lateinit var imageReader: ImageReader
-
 
     private var captureSession: CameraCaptureSession? = null
     private var cameraDevice: CameraDevice? = null
@@ -228,36 +226,10 @@ class DashboardFragment : Fragment() {
     private fun checkCameraPermission() = PackageManager.PERMISSION_GRANTED ==
             ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA)
 
-
     private fun grantCameraPermission() =
         ActivityCompat.requestPermissions(requireActivity(),
             arrayOf(Manifest.permission.CAMERA),
             CAMERA_PERMISSION_REQUEST_CODE)
-
-    /** Check if this device has a camera */
-    @SuppressLint("UnsupportedChromeOsCameraSystemFeature")
-    private fun checkCameraHardware(context: Context): Boolean {
-        return context.packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)
-    }
-
-    /** A safe way to get an instance of the Camera object. */
-//    fun getCameraInstance(): Camera? {
-//        return try {
-//            Camera.open() // attempt to get a Camera instance
-//        } catch (e: Exception) {
-//            // Camera is not available (in use or does not exist)
-//            null // returns null if camera is unavailable
-//        }
-//    }
-
-    val REQUEST_IMAGE_CAPTURE = 1
-    private fun dispatchTakePictureIntent() {
-        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
-            takePictureIntent.resolveActivity(requireActivity().packageManager)?.also {
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
-            }
-        }
-    }
 
     companion object {
         const val CAMERA_REQUEST_CODE = 1
