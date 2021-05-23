@@ -65,24 +65,25 @@ class MapsFragment : Fragment(R.layout.fragment_maps), GoogleMap.OnMyLocationBut
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
             return
-        }
-        var latitude = -34.0
-        var longitude = 151.0
-        fusedLocationClient.lastLocation.addOnSuccessListener {
-            // 成功時の処理
-            latitude = it.latitude
-            longitude = it.longitude
-            // Add a marker in Sydney and move the camera
-            val sydney = LatLng(latitude, longitude)
-            mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
-        }.addOnFailureListener {
-            // 失敗時の処理
-            // 位置情報の権限がない場合はここに来る
-            // Add a marker in Sydney and move the camera
-            val sydney = LatLng(latitude, longitude)
-            mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        } else {
+            var latitude = -34.0
+            var longitude = 151.0
+            fusedLocationClient.lastLocation.addOnSuccessListener {
+                // 成功時の処理
+                latitude = it.latitude
+                longitude = it.longitude
+                // Add a marker in Sydney and move the camera
+                val sydney = LatLng(latitude, longitude)
+                mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+            }.addOnFailureListener {
+                // 失敗時の処理
+                // 位置情報の権限がない場合はここに来る
+                // Add a marker in Sydney and move the camera
+                val sydney = LatLng(latitude, longitude)
+                mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+            }
         }
     }
 

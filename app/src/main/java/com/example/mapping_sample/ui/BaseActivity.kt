@@ -1,11 +1,14 @@
 package com.example.mapping_sample.ui
 
+import android.Manifest
 import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.example.mapping_sample.ui.dashboard.DashboardFragment
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
@@ -34,7 +37,15 @@ open class BaseActivity : AppCompatActivity(){
         GlobalScope.async {
             incrementCounter()
         }
+
+        // カメラ権限
+        grantCameraPermission()
     }
+
+    private fun grantCameraPermission() =
+        ActivityCompat.requestPermissions(this,
+            arrayOf(Manifest.permission.CAMERA),
+            DashboardFragment.CAMERA_PERMISSION_REQUEST_CODE)
 
     // static field
     companion object {
