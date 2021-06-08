@@ -19,20 +19,20 @@ open class BaseActivity : AppCompatActivity(){
     private val context = this
 
     private val Context.dataStore by preferencesDataStore(name = "settings")
-    // datastore read
-    private val exampleCounterFlow: Flow<Int> = context
-        .dataStore
-        .data
-        .map { preferences ->
-            // No type safety.
-            preferences[EXAMPLE_COUNTER] ?: 0
-        }
     // datastore write
     private suspend fun incrementCounter() {
         context.dataStore.edit { settings ->
             val currentCounterValue = settings[EXAMPLE_COUNTER] ?: 0
             settings[EXAMPLE_COUNTER] = currentCounterValue + 1
         }
+        // datastore read
+        val exampleCounterFlow: Flow<Int> = context
+            .dataStore
+            .data
+            .map { preferences ->
+                // No type safety.
+                preferences[EXAMPLE_COUNTER] ?: 0
+            }
         Log.d("debug", exampleCounterFlow.toString())
     }
 
