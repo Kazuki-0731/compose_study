@@ -35,17 +35,11 @@
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"
-            android:label="@string/title_activity_maps">
+            android:label="@string/title_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".ui.maps.MapsActivity"
-            android:exported="true"
-            android:label="@string/title_activity_maps">
         </activity>
     </application>
 
