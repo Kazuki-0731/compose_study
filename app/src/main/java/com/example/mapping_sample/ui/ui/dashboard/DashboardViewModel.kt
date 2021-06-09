@@ -1,7 +1,5 @@
-package com.example.mapping_sample.ui.dashboard
+package com.example.mapping_sample.ui.ui.dashboard
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class DashboardViewModel : ViewModel() {

@@ -1,4 +1,4 @@
-package com.example.mapping_sample.ui.settings
+package com.example.mapping_sample.ui.ui.settings
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

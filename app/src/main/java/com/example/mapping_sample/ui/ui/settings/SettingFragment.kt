@@ -1,4 +1,4 @@
-package com.example.mapping_sample.ui.settings
+package com.example.mapping_sample.ui.ui.settings
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.mapping_sample.databinding.FragmentDashboardBinding
 import com.example.mapping_sample.databinding.FragmentSettingsBinding
 
 class SettingFragment : Fragment() {
