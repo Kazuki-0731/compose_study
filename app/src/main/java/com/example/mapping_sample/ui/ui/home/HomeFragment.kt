@@ -7,14 +7,10 @@ import android.view.ViewGroup
 import androidx.compose.material.Text
 import androidx.compose.ui.InternalComposeUiApi
 import androidx.compose.ui.platform.ComposeView
-import androidx.compose.ui.platform.WindowRecomposerFactory
-import androidx.compose.ui.platform.compositionContext
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewTreeLifecycleOwner
 import com.example.mapping_sample.R
 import com.example.mapping_sample.databinding.FragmentHomeBinding
-import java.util.concurrent.atomic.AtomicReference
 
 /**
  * FragmentとComposeの共存
@@ -30,7 +26,6 @@ class HomeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    @InternalComposeUiApi
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
