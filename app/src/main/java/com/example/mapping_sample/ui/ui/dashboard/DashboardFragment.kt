@@ -34,6 +34,9 @@ class DashboardFragment : Fragment() {
         binding.buttonCapture.setOnClickListener {
             // カメラでキャプション
         }
+        cameraCapture.initCameraCapture(binding.cameraPreview, requireActivity(), requireContext(), this)
+        binding.cameraPreview.surfaceTextureListener = cameraCapture.surfaceTextureListener
+        startBackgroundThread()
 
         return root
     }
@@ -41,14 +44,6 @@ class DashboardFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-        cameraCapture.initCameraCapture(binding.cameraPreview, requireActivity(), requireContext(), this)
-        cameraCapture.textureView.surfaceTextureListener = cameraCapture.surfaceTextureListener
-        startBackgroundThread()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
