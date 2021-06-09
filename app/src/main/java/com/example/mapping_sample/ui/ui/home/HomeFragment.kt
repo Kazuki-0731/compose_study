@@ -50,31 +50,6 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.textHome
-//        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-//        })
-
-//        ViewTreeLifecycleOwner.set(binding.composeView, binding.root.findViewTreeLifecycleOwner())
-
-//        binding.composeView.apply {
-//            ViewTreeLifecycleOwner.set(this, viewLifecycleOwner)
-//            val newRecomposer = AtomicReference(WindowRecomposerFactory.LifecycleAware).get().createRecomposer(binding.root)
-//            compositionContext = newRecomposer
-//
-//            setContent {
-//                Text(text = "Hello world.")
-//            }
-//        }
-//        ViewTreeLifecycleOwner.set(binding.root, viewLifecycleOwner)
-//
-//        binding.composeView.setContent {
-//            Text(text = "Hello world.")
-//        }
-
-//        binding.root.findViewById<ComposeView>(R.id.composeView).setContent {
-//            Text(text = "Hello world.")
-//        }
         return root.apply {
             ViewTreeLifecycleOwner.set(this, viewLifecycleOwner)
             val newRecomposer = AtomicReference(WindowRecomposerFactory.LifecycleAware).get().createRecomposer(rootView)
@@ -83,21 +58,6 @@ class HomeFragment : Fragment() {
                 Text(text = "Hello world.")
             }
         }
-//        return ComposeView(requireContext()).apply {
-//
-//            ViewTreeLifecycleOwner.set(this, viewLifecycleOwner)
-//            val newRecomposer = AtomicReference(WindowRecomposerFactory.LifecycleAware).get().createRecomposer(this)
-//            compositionContext = newRecomposer
-//
-//            setContent {
-//                Text(
-//                    text = "BottomSheetDialogFragment + ComposeView",
-//                    modifier = Modifier.padding(10.dp)
-//                )
-//            }
-//        }
-
-//        return root
     }
 
     override fun onDestroyView() {
