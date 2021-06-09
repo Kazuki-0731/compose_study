@@ -35,13 +35,14 @@ class HomeFragment : Fragment() {
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        return root.apply {
-            findViewById<ComposeView>(R.id.composeView).setContent {
+        binding.apply {
+            composeView.setContent {
                 Text(text = "Hello world.")
             }
         }
+
+        return binding.root
     }
 
     override fun onDestroyView() {
