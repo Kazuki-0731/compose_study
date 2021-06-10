@@ -1,15 +1,12 @@
-package com.example.mapping_sample.ui.ui.home
+package com.example.mapping_sample.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.material.Text
-import androidx.compose.ui.InternalComposeUiApi
-import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.mapping_sample.R
 import com.example.mapping_sample.databinding.FragmentHomeBinding
 
 /**

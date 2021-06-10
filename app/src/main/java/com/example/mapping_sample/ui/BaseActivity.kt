@@ -9,7 +9,7 @@ import androidx.core.app.ActivityCompat
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.example.mapping_sample.ui.ui.dashboard.DashboardFragment
+import com.example.mapping_sample.ui.dashboard.DashboardFragment
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.Flow

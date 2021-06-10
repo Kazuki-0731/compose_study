@@ -1,4 +1,4 @@
-package com.example.mapping_sample.ui.ui.settings
+package com.example.mapping_sample.ui.settings
 
 import android.os.Bundle
 import android.view.LayoutInflater

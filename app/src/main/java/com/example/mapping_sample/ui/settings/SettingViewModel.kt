@@ -1,10 +1,11 @@
-package com.example.mapping_sample.ui.ui.home
+package com.example.mapping_sample.ui.settings
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class SettingViewModel : ViewModel() {
+
     private val _text = MutableLiveData<String>().apply {
         value = "This is settings Fragment"
     }

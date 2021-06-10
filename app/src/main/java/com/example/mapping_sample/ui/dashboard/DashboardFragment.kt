@@ -1,4 +1,4 @@
-package com.example.mapping_sample.ui.ui.dashboard
+package com.example.mapping_sample.ui.dashboard
 
 import android.app.Activity
 import android.content.Intent
