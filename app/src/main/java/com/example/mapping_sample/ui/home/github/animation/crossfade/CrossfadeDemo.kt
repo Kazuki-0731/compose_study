@@ -14,17 +14,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 
-enum class MyColors(val color: Color) {
+enum class AnimeColors(val color: Color) {
     Red(Color.Red), Green(Color.Green), Blue(Color.Blue)
 }
 
 @Preview(showBackground = true)
 @Composable
-fun CrossfadeDemo() {
-    var currentColor by remember { mutableStateOf(MyColors.Red) }
+fun crossfadeColor() {
+    var currentColor by remember { mutableStateOf(AnimeColors.Red) }
     Column {
         Row {
-            MyColors.values().forEach { myColors ->
+            AnimeColors.values().forEach { myColors ->
                 Button(
                         onClick = { currentColor = myColors },
                         Modifier.weight(1f, true)

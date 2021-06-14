@@ -1,14 +1,11 @@
 package com.example.mapping_sample.ui.home.github.layout
 
-
-
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.layoutId
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
-
 
 @Composable
 fun ConstraintLayoutDemo() {
