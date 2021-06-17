@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.mapping_sample.ui.home.HomeFragment"
+        android:name="com.example.compose_study.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home"/>
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.mapping_sample.ui.dashboard.DashboardFragment"
+        android:name="com.example.compose_study.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="com.example.mapping_sample.ui.settings.SettingFragment"
+        android:name="com.example.compose_study.ui.settings.SettingFragment"
         android:label="@string/title_settings"
         tools:layout="@layout/fragment_settings" />
 </navigation>
