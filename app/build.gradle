@@ -95,6 +95,10 @@ dependencies {
     implementation "androidx.navigation:navigation-compose:2.4.0-alpha02"
     /** ハイブリッドをやめて純正Composeにする場合、navigation-composeを実装 */
 
+    implementation "androidx.compose.foundation:foundation-layout:$compose_version"
+    implementation "androidx.compose.runtime:runtime:$compose_version"
+    implementation "androidx.compose.animation:animation:$compose_version"
+
     // test module
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
