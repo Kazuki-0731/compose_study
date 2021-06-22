@@ -8,7 +8,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.runtime.*
+import androidx.compose.ui.tooling.preview.Preview
 
+@Preview
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HandleTextFieldChanges() {
