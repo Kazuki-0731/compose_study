@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="com.example.compose_study.ui.settings.SettingFragment"
+        android:name="com.example.compose_study.ui.animation_test.AnimationFragment"
         android:label="@string/title_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_animation" />
 </navigation>
