@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context=".ui.dashboard.DashboardFragment">
+    tools:context=".ui.screen.dashboard.DashboardFragment">
 
     <ImageView
         android:id="@+id/camera_image"
