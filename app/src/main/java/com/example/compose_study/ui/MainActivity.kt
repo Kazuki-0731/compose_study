@@ -23,7 +23,7 @@ class MainActivity : BaseActivity() {
         // ナビゲーションに対応するView
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         val appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_settings))
+            R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_animation))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }

@@ -18,8 +18,8 @@
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_settings"
+        android:id="@+id/navigation_animation"
         android:name="com.example.compose_study.ui.animation_test.AnimationFragment"
-        android:label="@string/title_settings"
+        android:label="@string/title_animation"
         tools:layout="@layout/fragment_animation" />
 </navigation>
