@@ -14,7 +14,7 @@ import androidx.compose.material.lightColors
  * restoring the entire light / dark theme to and from [SharedPreferences].
  */
 @Stable
-class DemoColors {
+class ReplaceableColors {
     var light: Colors by mutableStateOf(lightColors())
     var dark: Colors by mutableStateOf(darkColors())
 

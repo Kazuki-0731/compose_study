@@ -64,7 +64,7 @@ class HomeFragment : Fragment() {
                 }
                 //状態は再コンポーズをまたいで保持
                 val demoColors = remember {
-                    DemoColors().also {
+                    ReplaceableColors().also {
                         lifecycle.addObserver(
                             LifecycleEventObserver { _, event ->
                                 if (event == Lifecycle.Event.ON_RESUME) {
@@ -82,13 +82,13 @@ class HomeFragment : Fragment() {
                     }
                     val onStartFiltering = { filteringMode.isFiltering = true }
                     val onEndFiltering = { filteringMode.isFiltering = false }
-                    ReplaceableViewApp(
+                    ReplaceableApp(
                         currentView = navigator.currentReplaceableView,
                         backStackTitle = navigator.backStackTitle,
                         isFiltering = filteringMode.isFiltering,
                         onStartFiltering = onStartFiltering,
                         onEndFiltering = onEndFiltering,
-                        onNavigateToDemo = { demo ->
+                        onNavigateToReplaceable = { demo ->
                             if (filteringMode.isFiltering) {
                                 onEndFiltering()
                                 navigator.popAll()
@@ -118,7 +118,7 @@ class HomeFragment : Fragment() {
 
 @Composable
 private fun DemoTheme(
-    demoColors: DemoColors,
+    replaceableColors: ReplaceableColors,
     window: Window,
     content: @Composable () -> Unit
 ) {
@@ -255,11 +255,11 @@ private class FilterMode(backDispatcher: OnBackPressedDispatcher, initialValue: 
 }
 
 /**
- * Returns a [DemoColors] from the values saved to [SharedPreferences]. If a given color is
+ * Returns a [ReplaceableColors] from the values saved to [SharedPreferences]. If a given color is
  * not present in the [SharedPreferences], its default value as defined in [Colors]
  * will be returned.
  */
-fun DemoColors.loadColorsFromSharedPreferences(context: Context) {
+fun ReplaceableColors.loadColorsFromSharedPreferences(context: Context) {
 
 }
 

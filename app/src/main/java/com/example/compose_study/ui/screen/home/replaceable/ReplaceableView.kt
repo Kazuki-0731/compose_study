@@ -54,6 +54,6 @@ fun ReplaceableViewCategory.allDemos(): List<ReplaceableView> {
 /**
  * Flattened recursive DFS [List] of every launchable demo in [this].
  */
-fun ReplaceableViewCategory.allLaunchableDemos(): List<ReplaceableView> {
+fun ReplaceableViewCategory.allLaunchableReplaceables(): List<ReplaceableView> {
     return allDemos().filter { it !is ReplaceableViewCategory }
 }

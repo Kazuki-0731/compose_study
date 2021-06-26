@@ -36,13 +36,13 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ReplaceableViewApp(
+fun ReplaceableApp(
     currentView: ReplaceableView,
     backStackTitle: String,
     isFiltering: Boolean,
     onStartFiltering: () -> Unit,
     onEndFiltering: () -> Unit,
-    onNavigateToDemo: (ReplaceableView) -> Unit,
+    onNavigateToReplaceable: (ReplaceableView) -> Unit,
     canNavigateUp: Boolean,
     onNavigateUp: () -> Unit,
     launchSettings: () -> Unit
@@ -53,7 +53,7 @@ fun ReplaceableViewApp(
 
     Scaffold(
         topBar = {
-            DemoAppBar(
+            ReplaceableAppBar(
                 title = backStackTitle,
                 navigationIcon = navigationIcon,
                 launchSettings = launchSettings,
@@ -66,59 +66,59 @@ fun ReplaceableViewApp(
         }
     ) { innerPadding ->
         val modifier = Modifier.padding(innerPadding)
-        DemoContent(modifier, currentView, isFiltering, filterText, onNavigateToDemo)
+        ReplaceableContent(modifier, currentView, isFiltering, filterText, onNavigateToReplaceable)
     }
 }
 
 @Composable
-private fun DemoContent(
+private fun ReplaceableContent(
     modifier: Modifier,
     currentReplaceableView: ReplaceableView,
     isFiltering: Boolean,
     filterText: String,
     onNavigate: (ReplaceableView) -> Unit
 ) {
-    Crossfade(isFiltering to currentReplaceableView) { (filtering, demo) ->
+    Crossfade(isFiltering to currentReplaceableView) { (filtering, replaceable) ->
         Surface(modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
             if (filtering) {
-                DemoFilter(
-                    launchableReplaceableViews = AllRootCategory.allLaunchableDemos(),
+                ReplaceableFilter(
+                    launchableReplaceableViews = AllRootCategory.allLaunchableReplaceables(),
                     filterText = filterText,
                     onNavigate = onNavigate
                 )
             } else {
-                DisplayDemo(demo, onNavigate)
+                DisplayReplaceable(replaceable, onNavigate)
             }
         }
     }
 }
 
 @Composable
-private fun DisplayDemo(replaceableView: ReplaceableView, onNavigate: (ReplaceableView) -> Unit) {
+private fun DisplayReplaceable(replaceableView: ReplaceableView, onNavigate: (ReplaceableView) -> Unit) {
     when (replaceableView) {
         is ActivityReplaceableView<*> -> {
-            /* should never get here as activity demos are not added to the backstack*/
+            /* should never get here as activity replaceable views are not added to the backstack*/
         }
         is ComposableReplaceableView -> replaceableView.content()
-        is ReplaceableViewCategory -> DisplayDemoCategory(replaceableView, onNavigate)
+        is ReplaceableViewCategory -> DisplayReplaceableCategory(replaceableView, onNavigate)
     }
 }
 
 @Composable
 @OptIn(ExperimentalMaterialApi::class)
-private fun DisplayDemoCategory(category: ReplaceableViewCategory, onNavigate: (ReplaceableView) -> Unit) {
+private fun DisplayReplaceableCategory(category: ReplaceableViewCategory, onNavigate: (ReplaceableView) -> Unit) {
     // TODO: migrate to LazyColumn after b/175671850
     Column(Modifier.verticalScroll(rememberScrollState())) {
-        category.replaceableViews.forEach { demo ->
+        category.replaceableViews.forEach { replaceable ->
             ListItem(
                 text = {
                     Text(
                         modifier = Modifier.height(56.dp)
                             .wrapContentSize(Alignment.Center),
-                        text = demo.title
+                        text = replaceable.title
                     )
                 },
-                modifier = Modifier.clickable { onNavigate(demo) }
+                modifier = Modifier.clickable { onNavigate(replaceable) }
             )
         }
     }
@@ -126,7 +126,7 @@ private fun DisplayDemoCategory(category: ReplaceableViewCategory, onNavigate: (
 
 @Suppress("ComposableLambdaParameterNaming", "ComposableLambdaParameterPosition")
 @Composable
-private fun DemoAppBar(
+private fun ReplaceableAppBar(
     title: String,
     navigationIcon: @Composable (() -> Unit)?,
     isFiltering: Boolean,

@@ -33,7 +33,7 @@ import androidx.compose.ui.unit.dp
  * A scrollable list of [launchableReplaceableViews], filtered by [filterText].
  */
 @Composable
-fun DemoFilter(launchableReplaceableViews: List<ReplaceableView>, filterText: String, onNavigate: (ReplaceableView) -> Unit) {
+fun ReplaceableFilter(launchableReplaceableViews: List<ReplaceableView>, filterText: String, onNavigate: (ReplaceableView) -> Unit) {
     val filteredDemos = launchableReplaceableViews
         .filter { it.title.contains(filterText, ignoreCase = true) }
         .sortedBy { it.title }

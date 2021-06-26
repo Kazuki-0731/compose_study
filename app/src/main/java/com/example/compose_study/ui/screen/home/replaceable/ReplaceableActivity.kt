@@ -8,7 +8,7 @@ import androidx.compose.ui.platform.ComposeView
 /**
  * Main [Activity] containing all Compose related demos.
  */
-class DemoActivity : ComponentActivity() {
+class ReplaceableActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
