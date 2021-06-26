@@ -82,7 +82,7 @@ class HomeFragment : Fragment() {
                     }
                     val onStartFiltering = { filteringMode.isFiltering = true }
                     val onEndFiltering = { filteringMode.isFiltering = false }
-                    DemoApp(
+                    ViewApp(
                         currentDemo = navigator.currentDemo,
                         backStackTitle = navigator.backStackTitle,
                         isFiltering = filteringMode.isFiltering,

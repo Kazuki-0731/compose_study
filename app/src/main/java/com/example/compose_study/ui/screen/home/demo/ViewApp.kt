@@ -36,7 +36,7 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun DemoApp(
+fun ViewApp(
     currentDemo: Demo,
     backStackTitle: String,
     isFiltering: Boolean,
