@@ -1,4 +1,4 @@
-package com.example.compose_study.ui.screen.home.demo
+package com.example.compose_study.ui.screen.home.replaceable
 
 import android.content.SharedPreferences
 import androidx.compose.runtime.Stable

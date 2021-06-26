@@ -22,7 +22,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.ViewModelProvider
 import com.example.compose_study.databinding.FragmentHomeBinding
-import com.example.compose_study.ui.screen.home.demo.*
+import com.example.compose_study.ui.screen.home.replaceable.*
 
 /**
  * FragmentとComposeの共存
@@ -50,7 +50,7 @@ class HomeFragment : Fragment() {
 
         binding.apply {
             composeView.setContent {
-                val activityStarter = fun(demo: ActivityDemo<*>) {
+                val activityStarter = fun(demo: ActivityReplaceableView<*>) {
                     startActivity(Intent(requireActivity(), demo.activityClass.java))
                 }
                 /**
@@ -82,8 +82,8 @@ class HomeFragment : Fragment() {
                     }
                     val onStartFiltering = { filteringMode.isFiltering = true }
                     val onEndFiltering = { filteringMode.isFiltering = false }
-                    ViewApp(
-                        currentDemo = navigator.currentDemo,
+                    ReplaceableViewApp(
+                        currentView = navigator.currentReplaceableView,
                         backStackTitle = navigator.backStackTitle,
                         isFiltering = filteringMode.isFiltering,
                         onStartFiltering = onStartFiltering,
@@ -138,16 +138,16 @@ private fun DemoTheme(
  */
 private class Navigator private constructor(
     private val backDispatcher: OnBackPressedDispatcher,
-    private val launchActivityDemo: (ActivityDemo<*>) -> Unit,
-    private val rootDemo: Demo,
-    initialDemo: Demo,
-    private val backStack: MutableList<Demo>
+    private val launchActivityDemo: (ActivityReplaceableView<*>) -> Unit,
+    private val rootReplaceableView: ReplaceableView,
+    initialReplaceableView: ReplaceableView,
+    private val backStack: MutableList<ReplaceableView>
 ) {
     constructor(
-        rootDemo: Demo,
+        rootReplaceableView: ReplaceableView,
         backDispatcher: OnBackPressedDispatcher,
-        launchActivityDemo: (ActivityDemo<*>) -> Unit
-    ) : this(backDispatcher, launchActivityDemo, rootDemo, rootDemo, mutableListOf<Demo>())
+        launchActivityDemo: (ActivityReplaceableView<*>) -> Unit
+    ) : this(backDispatcher, launchActivityDemo, rootReplaceableView, rootReplaceableView, mutableListOf<ReplaceableView>())
 
     private val onBackPressed = object : OnBackPressedCallback(false) {
         override fun handleOnBackPressed() {
@@ -158,8 +158,8 @@ private class Navigator private constructor(
         backDispatcher.addCallback(this)
     }
 
-    private var _currentDemo by mutableStateOf(initialDemo)
-    var currentDemo: Demo
+    private var _currentDemo by mutableStateOf(initialReplaceableView)
+    var currentReplaceableView: ReplaceableView
         get() = _currentDemo
         private set(value) {
             _currentDemo = value
@@ -170,36 +170,36 @@ private class Navigator private constructor(
 
     val backStackTitle: String
         get() =
-            (backStack.drop(1) + currentDemo).joinToString(separator = " > ") { it.title }
+            (backStack.drop(1) + currentReplaceableView).joinToString(separator = " > ") { it.title }
 
-    fun navigateTo(demo: Demo) {
-        if (demo is ActivityDemo<*>) {
-            launchActivityDemo(demo)
+    fun navigateTo(replaceableView: ReplaceableView) {
+        if (replaceableView is ActivityReplaceableView<*>) {
+            launchActivityDemo(replaceableView)
         } else {
-            backStack.add(currentDemo)
-            currentDemo = demo
+            backStack.add(currentReplaceableView)
+            currentReplaceableView = replaceableView
         }
     }
 
     fun popAll() {
         if (!isRoot) {
             backStack.clear()
-            currentDemo = rootDemo
+            currentReplaceableView = rootReplaceableView
         }
     }
 
     private fun popBackStack() {
-        currentDemo = backStack.removeAt(backStack.lastIndex)
+        currentReplaceableView = backStack.removeAt(backStack.lastIndex)
     }
 
     companion object {
         fun Saver(
-            rootDemo: DemoCategory,
+            rootDemo: ReplaceableViewCategory,
             backDispatcher: OnBackPressedDispatcher,
-            launchActivityDemo: (ActivityDemo<*>) -> Unit
+            launchActivityDemo: (ActivityReplaceableView<*>) -> Unit
         ): Saver<Navigator, *> = listSaver<Navigator, String>(
             save = { navigator ->
-                (navigator.backStack + navigator.currentDemo).map { it.title }
+                (navigator.backStack + navigator.currentReplaceableView).map { it.title }
             },
             restore = { restored ->
                 require(restored.isNotEmpty())
@@ -211,12 +211,12 @@ private class Navigator private constructor(
             }
         )
 
-        private fun findDemo(demo: Demo, title: String): Demo? {
-            if (demo.title == title) {
-                return demo
+        private fun findDemo(replaceableView: ReplaceableView, title: String): ReplaceableView? {
+            if (replaceableView.title == title) {
+                return replaceableView
             }
-            if (demo is DemoCategory) {
-                demo.demos.forEach { child ->
+            if (replaceableView is ReplaceableViewCategory) {
+                replaceableView.replaceableViews.forEach { child ->
                     findDemo(child, title)
                         ?.let { return it }
                 }

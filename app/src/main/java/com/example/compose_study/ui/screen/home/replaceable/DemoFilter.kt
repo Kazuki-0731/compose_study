@@ -1,4 +1,4 @@
-package com.example.compose_study.ui.screen.home.demo
+package com.example.compose_study.ui.screen.home.replaceable
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
@@ -30,11 +30,11 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 
 /**
- * A scrollable list of [launchableDemos], filtered by [filterText].
+ * A scrollable list of [launchableReplaceableViews], filtered by [filterText].
  */
 @Composable
-fun DemoFilter(launchableDemos: List<Demo>, filterText: String, onNavigate: (Demo) -> Unit) {
-    val filteredDemos = launchableDemos
+fun DemoFilter(launchableReplaceableViews: List<ReplaceableView>, filterText: String, onNavigate: (ReplaceableView) -> Unit) {
+    val filteredDemos = launchableReplaceableViews
         .filter { it.title.contains(filterText, ignoreCase = true) }
         .sortedBy { it.title }
     // TODO: migrate to LazyColumn after b/175671850
@@ -93,18 +93,18 @@ private fun FilterField(
 }
 
 /**
- * [ListItem] that displays a [demo] and highlights any matches for [filterText] inside [Demo.title]
+ * [ListItem] that displays a [replaceableView] and highlights any matches for [filterText] inside [ReplaceableView.title]
  */
 @Composable
 @OptIn(ExperimentalMaterialApi::class)
 private fun FilteredDemoListItem(
-    demo: Demo,
+    replaceableView: ReplaceableView,
     filterText: String,
-    onNavigate: (Demo) -> Unit
+    onNavigate: (ReplaceableView) -> Unit
 ) {
     val primary = MaterialTheme.colors.primary
     val annotatedString = buildAnnotatedString {
-        val title = demo.title
+        val title = replaceableView.title
         var currentIndex = 0
         val pattern = filterText.toRegex(option = RegexOption.IGNORE_CASE)
         pattern.findAll(title).forEach { result ->
@@ -122,7 +122,7 @@ private fun FilteredDemoListItem(
             append(title.substring(currentIndex, title.length))
         }
     }
-    key(demo.title) {
+    key(replaceableView.title) {
         ListItem(
             text = {
                 Text(
@@ -130,7 +130,7 @@ private fun FilteredDemoListItem(
                     text = annotatedString
                 )
             },
-            modifier = Modifier.clickable { onNavigate(demo) }
+            modifier = Modifier.clickable { onNavigate(replaceableView) }
         )
     }
 }

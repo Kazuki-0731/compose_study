@@ -1,14 +1,14 @@
 package com.example.compose_study.ui.screen.home.github.animation
 
 
-import com.example.compose_study.ui.screen.home.demo.ComposableDemo
-import com.example.compose_study.ui.screen.home.demo.DemoCategory
+import com.example.compose_study.ui.screen.home.replaceable.ComposableReplaceableView
+import com.example.compose_study.ui.screen.home.replaceable.ReplaceableViewCategory
 import com.example.compose_study.ui.screen.home.github.animation.crossfade.crossfadeColor
 
 
-val AnimationDemos = DemoCategory(
+val AnimationDemos = ReplaceableViewCategory(
     "Animation",
     listOf(
-        ComposableDemo("CrossfadeDemo") { crossfadeColor() }
+        ComposableReplaceableView("CrossfadeDemo") { crossfadeColor() }
     )
 )

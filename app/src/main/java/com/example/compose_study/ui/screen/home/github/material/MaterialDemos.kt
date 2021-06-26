@@ -1,8 +1,8 @@
 package com.example.compose_study.ui.screen.home.github.material
 
 import SnackbarDemo
-import com.example.compose_study.ui.screen.home.demo.ComposableDemo
-import com.example.compose_study.ui.screen.home.demo.DemoCategory
+import com.example.compose_study.ui.screen.home.replaceable.ComposableReplaceableView
+import com.example.compose_study.ui.screen.home.replaceable.ReplaceableViewCategory
 import com.example.compose_study.ui.screen.home.github.material.button.ButtonExample
 import com.example.compose_study.ui.screen.home.github.material.card.CardDemo
 import com.example.compose_study.ui.screen.home.github.material.checkbox.CheckBoxDemo
@@ -16,22 +16,22 @@ import com.example.compose_study.ui.screen.home.github.material.alertdialog.Aler
 import com.example.compose_study.ui.screen.home.github.material.appbar.topappbar.TopAppBarSample
 import com.example.compose_study.ui.screen.home.github.material.scaffold.ScaffoldDemo
 
-val MaterialDemos = DemoCategory(
+val MaterialDemos = ReplaceableViewCategory(
     "MaterialDemos",
     listOf(
-        ComposableDemo("AlertDialogSample") { AlertDialogSample() },
-        ComposableDemo("ButtonExample") { ButtonExample() },
-        ComposableDemo("CardDemo") { CardDemo() },
-        ComposableDemo("CheckBoxDemo") { CheckBoxDemo() },
-        ComposableDemo("CircularProgressIndicatorSample") { CircularProgressIndicatorSample() },
-        ComposableDemo("DropdownDemo") { DropdownDemo() },
-        ComposableDemo("FloatingActionButtonDemo") { FloatingActionButtonDemo() },
-        ComposableDemo("LinearProgressIndicatorSample") { LinearProgressIndicatorSample() },
-        ComposableDemo("ModalDrawerLayoutSample") { ModalDrawerSample() },
-        ComposableDemo("RadioButtonSample") { RadioButtonSample() },
-        ComposableDemo("ScaffoldDemo") { ScaffoldDemo() },
-        ComposableDemo("SnackbarDemo") { SnackbarDemo() },
-        ComposableDemo("TopAppBarSample") { TopAppBarSample() },
+        ComposableReplaceableView("AlertDialogSample") { AlertDialogSample() },
+        ComposableReplaceableView("ButtonExample") { ButtonExample() },
+        ComposableReplaceableView("CardDemo") { CardDemo() },
+        ComposableReplaceableView("CheckBoxDemo") { CheckBoxDemo() },
+        ComposableReplaceableView("CircularProgressIndicatorSample") { CircularProgressIndicatorSample() },
+        ComposableReplaceableView("DropdownDemo") { DropdownDemo() },
+        ComposableReplaceableView("FloatingActionButtonDemo") { FloatingActionButtonDemo() },
+        ComposableReplaceableView("LinearProgressIndicatorSample") { LinearProgressIndicatorSample() },
+        ComposableReplaceableView("ModalDrawerLayoutSample") { ModalDrawerSample() },
+        ComposableReplaceableView("RadioButtonSample") { RadioButtonSample() },
+        ComposableReplaceableView("ScaffoldDemo") { ScaffoldDemo() },
+        ComposableReplaceableView("SnackbarDemo") { SnackbarDemo() },
+        ComposableReplaceableView("TopAppBarSample") { TopAppBarSample() },
 
         )
 )

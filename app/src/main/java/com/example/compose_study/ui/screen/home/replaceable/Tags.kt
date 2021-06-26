@@ -1,4 +1,4 @@
-package com.example.compose_study.ui.screen.home.demo
+package com.example.compose_study.ui.screen.home.replaceable
 
 /**
  * Tags used for testing

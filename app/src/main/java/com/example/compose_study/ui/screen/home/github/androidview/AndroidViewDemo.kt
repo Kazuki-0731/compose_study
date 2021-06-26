@@ -1,11 +1,11 @@
 package com.example.compose_study.ui.screen.home.github.androidview
 
-import com.example.compose_study.ui.screen.home.demo.ComposableDemo
-import com.example.compose_study.ui.screen.home.demo.DemoCategory
+import com.example.compose_study.ui.screen.home.replaceable.ComposableReplaceableView
+import com.example.compose_study.ui.screen.home.replaceable.ReplaceableViewCategory
 
-val AndroidViewDemo = DemoCategory(
+val AndroidViewDemo = ReplaceableViewCategory(
     "AndroidViewDemo",
     listOf(
-        ComposableDemo("AndroidViewDemo") { EmbeddedAndroidViewDemo() }
+        ComposableReplaceableView("AndroidViewDemo") { EmbeddedAndroidViewDemo() }
     )
 )

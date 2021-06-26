@@ -1,13 +1,13 @@
 package com.example.compose_study.ui.screen.home.github.other
 
 
-import com.example.compose_study.ui.screen.home.demo.ComposableDemo
-import com.example.compose_study.ui.screen.home.demo.DemoCategory
+import com.example.compose_study.ui.screen.home.replaceable.ComposableReplaceableView
+import com.example.compose_study.ui.screen.home.replaceable.ReplaceableViewCategory
 
 
-val OtherDemos = DemoCategory(
+val OtherDemos = ReplaceableViewCategory(
     "Other",
     listOf(
-        ComposableDemo("TextFieldDemo") { TextFieldDemo() },
+        ComposableReplaceableView("TextFieldDemo") { TextFieldDemo() },
         )
 )

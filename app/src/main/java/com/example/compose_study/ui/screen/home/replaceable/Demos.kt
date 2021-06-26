@@ -1,4 +1,4 @@
-package com.example.compose_study.ui.screen.home.demo
+package com.example.compose_study.ui.screen.home.replaceable
 
 import com.example.compose_study.ui.screen.home.github.androidview.AndroidViewDemo
 import com.example.compose_study.ui.screen.home.github.animation.AnimationDemos
@@ -9,9 +9,9 @@ import com.example.compose_study.ui.screen.home.github.material.MaterialDemos
 import com.example.compose_study.ui.screen.home.github.other.OtherDemos
 
 /**
- * [DemoCategory] containing all the top level demo categories.
+ * [ReplaceableViewCategory] containing all the top level demo categories.
  */
-val AllRootCategory = DemoCategory(
+val AllRootCategory = ReplaceableViewCategory(
     "Jetpack Compose Playground Demos",
     listOf(
         AndroidViewDemo,

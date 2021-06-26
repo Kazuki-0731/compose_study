@@ -1,17 +1,17 @@
 package com.example.compose_study.ui.screen.home.github.layout
 
 
-import com.example.compose_study.ui.screen.home.demo.ComposableDemo
-import com.example.compose_study.ui.screen.home.demo.DemoCategory
+import com.example.compose_study.ui.screen.home.replaceable.ComposableReplaceableView
+import com.example.compose_study.ui.screen.home.replaceable.ReplaceableViewCategory
 
 
-val LayoutDemos = DemoCategory(
+val LayoutDemos = ReplaceableViewCategory(
     "LayoutDemos",
     listOf(
-        ComposableDemo("BoxExample") { BoxExample() },
-        ComposableDemo("ConstraintLayoutDemo") { ConstraintLayoutDemo() },
+        ComposableReplaceableView("BoxExample") { BoxExample() },
+        ComposableReplaceableView("ConstraintLayoutDemo") { ConstraintLayoutDemo() },
 
-        ComposableDemo("ColumnExample") { ColumnExample() },
-        ComposableDemo("RowExample") { RowExample() },
+        ComposableReplaceableView("ColumnExample") { ColumnExample() },
+        ComposableReplaceableView("RowExample") { RowExample() },
         )
 )

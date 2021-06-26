@@ -1,4 +1,4 @@
-package com.example.compose_study.ui.screen.home.demo
+package com.example.compose_study.ui.screen.home.replaceable
 
 import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.clickable
@@ -36,13 +36,13 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ViewApp(
-    currentDemo: Demo,
+fun ReplaceableViewApp(
+    currentView: ReplaceableView,
     backStackTitle: String,
     isFiltering: Boolean,
     onStartFiltering: () -> Unit,
     onEndFiltering: () -> Unit,
-    onNavigateToDemo: (Demo) -> Unit,
+    onNavigateToDemo: (ReplaceableView) -> Unit,
     canNavigateUp: Boolean,
     onNavigateUp: () -> Unit,
     launchSettings: () -> Unit
@@ -66,23 +66,23 @@ fun ViewApp(
         }
     ) { innerPadding ->
         val modifier = Modifier.padding(innerPadding)
-        DemoContent(modifier, currentDemo, isFiltering, filterText, onNavigateToDemo)
+        DemoContent(modifier, currentView, isFiltering, filterText, onNavigateToDemo)
     }
 }
 
 @Composable
 private fun DemoContent(
     modifier: Modifier,
-    currentDemo: Demo,
+    currentReplaceableView: ReplaceableView,
     isFiltering: Boolean,
     filterText: String,
-    onNavigate: (Demo) -> Unit
+    onNavigate: (ReplaceableView) -> Unit
 ) {
-    Crossfade(isFiltering to currentDemo) { (filtering, demo) ->
+    Crossfade(isFiltering to currentReplaceableView) { (filtering, demo) ->
         Surface(modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
             if (filtering) {
                 DemoFilter(
-                    launchableDemos = AllRootCategory.allLaunchableDemos(),
+                    launchableReplaceableViews = AllRootCategory.allLaunchableDemos(),
                     filterText = filterText,
                     onNavigate = onNavigate
                 )
@@ -94,22 +94,22 @@ private fun DemoContent(
 }
 
 @Composable
-private fun DisplayDemo(demo: Demo, onNavigate: (Demo) -> Unit) {
-    when (demo) {
-        is ActivityDemo<*> -> {
+private fun DisplayDemo(replaceableView: ReplaceableView, onNavigate: (ReplaceableView) -> Unit) {
+    when (replaceableView) {
+        is ActivityReplaceableView<*> -> {
             /* should never get here as activity demos are not added to the backstack*/
         }
-        is ComposableDemo -> demo.content()
-        is DemoCategory -> DisplayDemoCategory(demo, onNavigate)
+        is ComposableReplaceableView -> replaceableView.content()
+        is ReplaceableViewCategory -> DisplayDemoCategory(replaceableView, onNavigate)
     }
 }
 
 @Composable
 @OptIn(ExperimentalMaterialApi::class)
-private fun DisplayDemoCategory(category: DemoCategory, onNavigate: (Demo) -> Unit) {
+private fun DisplayDemoCategory(category: ReplaceableViewCategory, onNavigate: (ReplaceableView) -> Unit) {
     // TODO: migrate to LazyColumn after b/175671850
     Column(Modifier.verticalScroll(rememberScrollState())) {
-        category.demos.forEach { demo ->
+        category.replaceableViews.forEach { demo ->
             ListItem(
                 text = {
                     Text(
