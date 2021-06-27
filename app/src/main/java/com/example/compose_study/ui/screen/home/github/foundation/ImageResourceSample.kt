@@ -9,7 +9,7 @@ import com.example.compose_study.R
 
 @Preview
 @Composable
-fun ImageResourceDemo() {
+fun ImageResourceSample() {
     val image: Painter = painterResource(id = R.drawable.composelogo)
     Image(painter = image,contentDescription = "")
 }

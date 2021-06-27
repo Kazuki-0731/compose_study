@@ -10,7 +10,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 
 @Composable
-fun TextExample(){
+fun TextSample(){
     Column {
         Text("Just Text")
         Text("Text with cursive font", style = TextStyle(fontFamily = FontFamily.Cursive))

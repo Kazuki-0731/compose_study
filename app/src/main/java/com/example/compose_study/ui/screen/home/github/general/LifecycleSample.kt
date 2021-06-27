@@ -25,7 +25,7 @@ import androidx.compose.runtime.*
 
 
 @Composable
-fun LifecycleDemo() {
+fun LifecycleSample() {
 
     val count = remember { mutableStateOf(0) }
 

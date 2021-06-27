@@ -1,12 +1,12 @@
 package com.example.compose_study.ui.screen.home.replaceable
 
-import com.example.compose_study.ui.screen.home.github.androidview.AndroidViewDemo
-import com.example.compose_study.ui.screen.home.github.animation.AnimationDemos
-import com.example.compose_study.ui.screen.home.github.foundation.FoundationDemos
-import com.example.compose_study.ui.screen.home.github.general.GeneralDemos
-import com.example.compose_study.ui.screen.home.github.layout.LayoutDemos
-import com.example.compose_study.ui.screen.home.github.material.MaterialDemos
-import com.example.compose_study.ui.screen.home.github.other.OtherDemos
+import com.example.compose_study.ui.screen.home.github.androidview.AndroidViewSample
+import com.example.compose_study.ui.screen.home.github.animation.AnimationSample
+import com.example.compose_study.ui.screen.home.github.foundation.FoundationSample
+import com.example.compose_study.ui.screen.home.github.general.GeneralSamples
+import com.example.compose_study.ui.screen.home.github.layout.LayoutSample
+import com.example.compose_study.ui.screen.home.github.material.MaterialSample
+import com.example.compose_study.ui.screen.home.github.other.OtherSample
 
 /**
  * [ReplaceableViewCategory] containing all the top level demo categories.
@@ -14,12 +14,12 @@ import com.example.compose_study.ui.screen.home.github.other.OtherDemos
 val AllRootCategory = ReplaceableViewCategory(
     "Jetpack Compose Playground Demos",
     listOf(
-        AndroidViewDemo,
-        AnimationDemos,
-        FoundationDemos,
-        LayoutDemos,
-        MaterialDemos,
-        GeneralDemos,
-        OtherDemos
+        AndroidViewSample,
+        AnimationSample,
+        FoundationSample,
+        LayoutSample,
+        MaterialSample,
+        GeneralSamples,
+        OtherSample
     )
 )

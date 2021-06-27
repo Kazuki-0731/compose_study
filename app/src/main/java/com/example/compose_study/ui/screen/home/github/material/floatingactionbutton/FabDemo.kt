@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun FloatingActionButtonDemo() {
+fun FloatingActionButtonSample() {
     FloatingActionButton(onClick = { /*do something*/}) {
         Text("FloatingActionButton")
     }

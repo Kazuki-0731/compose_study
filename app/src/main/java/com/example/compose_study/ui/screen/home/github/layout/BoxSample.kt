@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 
 @Preview(showBackground = true)
 @Composable
-fun BoxExample() {
+fun BoxSample() {
     Box(Modifier.fillMaxSize()) {
         Text("This text is drawn first", modifier = Modifier.align(Alignment.TopCenter))
         Box(

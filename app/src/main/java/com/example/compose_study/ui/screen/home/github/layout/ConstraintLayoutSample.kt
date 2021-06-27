@@ -8,7 +8,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 
 @Composable
-fun ConstraintLayoutDemo() {
+fun ConstraintLayoutSample() {
     ConstraintSet {
         val text1 = createRefFor("text1")
         val text2 = createRefFor("text2")

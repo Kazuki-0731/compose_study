@@ -9,13 +9,12 @@ import androidx.compose.runtime.Composable
 @Composable
 fun RowDemo() {
     MaterialTheme {
-        RowExample()
+        RowSample()
     }
-
 }
 
 @Composable
-fun RowExample() {
+fun RowSample() {
     Row {
         Text(text = " Hello World!", style = (MaterialTheme.typography).body1)
         Text(text = " Hello World!2", style = (MaterialTheme.typography).body1)

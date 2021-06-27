@@ -2,8 +2,8 @@ package com.example.compose_study.ui.screen.home.github.foundation
 
 import android.util.Log
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.lazy.*
-
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -12,11 +12,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun LazyRowDemo() {
+fun LazyColumnSample() {
     val list = listOf(
         "A", "B", "C", "D"
     ) + ((0..100).map { it.toString() })
-    LazyRow(modifier = Modifier.fillMaxHeight()) {
+    LazyColumn(modifier = Modifier.fillMaxHeight()) {
         items(items = list, itemContent = { item ->
             Log.d("COMPOSE", "This get rendered $item")
             when (item) {

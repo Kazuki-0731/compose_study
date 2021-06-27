@@ -11,20 +11,15 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun ColumnDemo() {
-
     MaterialTheme {
-        ColumnExample()
+        ColumnSample()
     }
-
 }
 
 @Composable
-fun ColumnExample() {
-
-        Column {
-            Text(text = " Hello World!")
-            Text(text = " Hello World!2")
-        }
-
-
+fun ColumnSample() {
+    Column {
+        Text(text = " Hello World!")
+        Text(text = " Hello World!2")
+    }
 }

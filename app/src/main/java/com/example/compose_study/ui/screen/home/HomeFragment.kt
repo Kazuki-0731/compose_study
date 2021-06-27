@@ -50,8 +50,8 @@ class HomeFragment : Fragment() {
 
         binding.apply {
             composeView.setContent {
-                val activityStarter = fun(demo: ActivityReplaceableView<*>) {
-                    startActivity(Intent(requireActivity(), demo.activityClass.java))
+                val activityStarter = fun(replaceableView: ActivityReplaceableView<*>) {
+                    startActivity(Intent(requireActivity(), replaceableView.activityClass.java))
                 }
                 /**
                  * Bundle に保存可能なすべての値を自動的に保存します。
@@ -63,7 +63,7 @@ class HomeFragment : Fragment() {
                     Navigator(AllRootCategory, requireActivity().onBackPressedDispatcher, activityStarter)
                 }
                 //状態は再コンポーズをまたいで保持
-                val demoColors = remember {
+                val replaceableColors = remember {
                     ReplaceableColors().also {
                         lifecycle.addObserver(
                             LifecycleEventObserver { _, event ->
@@ -74,7 +74,7 @@ class HomeFragment : Fragment() {
                         )
                     }
                 }
-                DemoTheme(demoColors, requireActivity().window) {
+                ReplaceableTheme(replaceableColors, requireActivity().window) {
                     val filteringMode = rememberSaveable(
                         saver = FilterMode.Saver(requireActivity().onBackPressedDispatcher)
                     ) {
@@ -88,12 +88,12 @@ class HomeFragment : Fragment() {
                         isFiltering = filteringMode.isFiltering,
                         onStartFiltering = onStartFiltering,
                         onEndFiltering = onEndFiltering,
-                        onNavigateToReplaceable = { demo ->
+                        onNavigateToReplaceable = { replaceable ->
                             if (filteringMode.isFiltering) {
                                 onEndFiltering()
                                 navigator.popAll()
                             }
-                            navigator.navigateTo(demo)
+                            navigator.navigateTo(replaceable)
                         },
                         canNavigateUp = !navigator.isRoot,
                         onNavigateUp = {
@@ -117,7 +117,7 @@ class HomeFragment : Fragment() {
 }
 
 @Composable
-private fun DemoTheme(
+private fun ReplaceableTheme(
     replaceableColors: ReplaceableColors,
     window: Window,
     content: @Composable () -> Unit
@@ -138,7 +138,7 @@ private fun DemoTheme(
  */
 private class Navigator private constructor(
     private val backDispatcher: OnBackPressedDispatcher,
-    private val launchActivityDemo: (ActivityReplaceableView<*>) -> Unit,
+    private val launchActivityReplaceable: (ActivityReplaceableView<*>) -> Unit,
     private val rootReplaceableView: ReplaceableView,
     initialReplaceableView: ReplaceableView,
     private val backStack: MutableList<ReplaceableView>
@@ -146,8 +146,8 @@ private class Navigator private constructor(
     constructor(
         rootReplaceableView: ReplaceableView,
         backDispatcher: OnBackPressedDispatcher,
-        launchActivityDemo: (ActivityReplaceableView<*>) -> Unit
-    ) : this(backDispatcher, launchActivityDemo, rootReplaceableView, rootReplaceableView, mutableListOf<ReplaceableView>())
+        launchActivityReplaceable: (ActivityReplaceableView<*>) -> Unit
+    ) : this(backDispatcher, launchActivityReplaceable, rootReplaceableView, rootReplaceableView, mutableListOf<ReplaceableView>())
 
     private val onBackPressed = object : OnBackPressedCallback(false) {
         override fun handleOnBackPressed() {
@@ -158,11 +158,11 @@ private class Navigator private constructor(
         backDispatcher.addCallback(this)
     }
 
-    private var _currentDemo by mutableStateOf(initialReplaceableView)
+    private var _currentReplaceable by mutableStateOf(initialReplaceableView)
     var currentReplaceableView: ReplaceableView
-        get() = _currentDemo
+        get() = _currentReplaceable
         private set(value) {
-            _currentDemo = value
+            _currentReplaceable = value
             onBackPressed.isEnabled = !isRoot
         }
 
@@ -174,7 +174,7 @@ private class Navigator private constructor(
 
     fun navigateTo(replaceableView: ReplaceableView) {
         if (replaceableView is ActivityReplaceableView<*>) {
-            launchActivityDemo(replaceableView)
+            launchActivityReplaceable(replaceableView)
         } else {
             backStack.add(currentReplaceableView)
             currentReplaceableView = replaceableView
@@ -194,9 +194,9 @@ private class Navigator private constructor(
 
     companion object {
         fun Saver(
-            rootDemo: ReplaceableViewCategory,
+            rootReplaceable: ReplaceableViewCategory,
             backDispatcher: OnBackPressedDispatcher,
-            launchActivityDemo: (ActivityReplaceableView<*>) -> Unit
+            launchActivityReplaceable: (ActivityReplaceableView<*>) -> Unit
         ): Saver<Navigator, *> = listSaver<Navigator, String>(
             save = { navigator ->
                 (navigator.backStack + navigator.currentReplaceableView).map { it.title }
@@ -204,20 +204,20 @@ private class Navigator private constructor(
             restore = { restored ->
                 require(restored.isNotEmpty())
                 val backStack = restored.mapTo(mutableListOf()) {
-                    requireNotNull(findDemo(rootDemo, it))
+                    requireNotNull(findView(rootReplaceable, it))
                 }
                 val initial = backStack.removeAt(backStack.lastIndex)
-                Navigator(backDispatcher, launchActivityDemo, rootDemo, initial, backStack)
+                Navigator(backDispatcher, launchActivityReplaceable, rootReplaceable, initial, backStack)
             }
         )
 
-        private fun findDemo(replaceableView: ReplaceableView, title: String): ReplaceableView? {
+        private fun findView(replaceableView: ReplaceableView, title: String): ReplaceableView? {
             if (replaceableView.title == title) {
                 return replaceableView
             }
             if (replaceableView is ReplaceableViewCategory) {
                 replaceableView.replaceableViews.forEach { child ->
-                    findDemo(child, title)
+                    findView(child, title)
                         ?.let { return it }
                 }
             }

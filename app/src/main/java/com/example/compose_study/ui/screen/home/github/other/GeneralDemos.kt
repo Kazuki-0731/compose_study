@@ -5,9 +5,9 @@ import com.example.compose_study.ui.screen.home.replaceable.ComposableReplaceabl
 import com.example.compose_study.ui.screen.home.replaceable.ReplaceableViewCategory
 
 
-val OtherDemos = ReplaceableViewCategory(
+val OtherSample = ReplaceableViewCategory(
     "Other",
     listOf(
-        ComposableReplaceableView("TextFieldDemo") { TextFieldDemo() },
+        ComposableReplaceableView("TextFieldSample") { TextFieldSample() },
         )
 )

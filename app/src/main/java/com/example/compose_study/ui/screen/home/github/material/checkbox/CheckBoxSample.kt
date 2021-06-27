@@ -6,7 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 
 @Composable
-fun CheckBoxDemo() {
+fun CheckBoxSample() {
         val checkedState = remember { mutableStateOf(true) }
         Checkbox(
             checked = checkedState.value,

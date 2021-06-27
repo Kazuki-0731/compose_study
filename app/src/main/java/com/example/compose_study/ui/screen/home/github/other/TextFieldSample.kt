@@ -8,7 +8,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 
 
 @Composable
-fun TextFieldDemo() {
+fun TextFieldSample() {
     Column {
         var state =  TextFieldValue("")
         BasicTextField(

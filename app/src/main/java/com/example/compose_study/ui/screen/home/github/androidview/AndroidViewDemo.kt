@@ -3,9 +3,9 @@ package com.example.compose_study.ui.screen.home.github.androidview
 import com.example.compose_study.ui.screen.home.replaceable.ComposableReplaceableView
 import com.example.compose_study.ui.screen.home.replaceable.ReplaceableViewCategory
 
-val AndroidViewDemo = ReplaceableViewCategory(
-    "AndroidViewDemo",
+val AndroidViewSample = ReplaceableViewCategory(
+    "AndroidView",
     listOf(
-        ComposableReplaceableView("AndroidViewDemo") { EmbeddedAndroidViewDemo() }
+        ComposableReplaceableView("AndroidView") { EmbeddedAndroidViewDemo() }
     )
 )

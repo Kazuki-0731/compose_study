@@ -6,9 +6,9 @@ import com.example.compose_study.ui.screen.home.replaceable.ReplaceableViewCateg
 import com.example.compose_study.ui.screen.home.github.animation.crossfade.crossfadeColor
 
 
-val AnimationDemos = ReplaceableViewCategory(
+val AnimationSample = ReplaceableViewCategory(
     "Animation",
     listOf(
-        ComposableReplaceableView("CrossfadeDemo") { crossfadeColor() }
+        ComposableReplaceableView("Crossfade") { crossfadeColor() }
     )
 )

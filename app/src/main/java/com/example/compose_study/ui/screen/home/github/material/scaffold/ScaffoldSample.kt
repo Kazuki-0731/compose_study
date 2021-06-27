@@ -6,7 +6,7 @@ import androidx.compose.ui.graphics.Color
 
 
 @Composable
-fun ScaffoldDemo() {
+fun ScaffoldSample() {
     val materialBlue700= Color(0xFF1976D2)
 
      Scaffold(

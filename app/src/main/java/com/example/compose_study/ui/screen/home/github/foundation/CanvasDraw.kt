@@ -11,7 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 
 @Preview(showBackground = true)
 @Composable
-fun CanvasDrawExample() {
+fun CanvasDraw() {
     Canvas(modifier = Modifier.fillMaxSize()) {
         drawRect(Color.Blue, topLeft = Offset(0f, 0f), size = Size(this.size.width, 55f))
         drawCircle(Color.Red, center = Offset(50f, 200f), radius = 40f)

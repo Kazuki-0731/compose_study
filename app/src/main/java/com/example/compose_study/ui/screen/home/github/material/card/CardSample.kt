@@ -16,7 +16,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun CardDemo() {
+fun CardSample() {
     Card(
         modifier = Modifier
             .fillMaxWidth()

@@ -5,13 +5,13 @@ import com.example.compose_study.ui.screen.home.replaceable.ComposableReplaceabl
 import com.example.compose_study.ui.screen.home.replaceable.ReplaceableViewCategory
 
 
-val LayoutDemos = ReplaceableViewCategory(
-    "LayoutDemos",
+val LayoutSample = ReplaceableViewCategory(
+    "LayoutSamples",
     listOf(
-        ComposableReplaceableView("BoxExample") { BoxExample() },
-        ComposableReplaceableView("ConstraintLayoutDemo") { ConstraintLayoutDemo() },
+        ComposableReplaceableView("BoxSample") { BoxSample() },
+        ComposableReplaceableView("ConstraintLayoutSample") { ConstraintLayoutSample() },
 
-        ComposableReplaceableView("ColumnExample") { ColumnExample() },
-        ComposableReplaceableView("RowExample") { RowExample() },
+        ComposableReplaceableView("ColumnSample") { ColumnSample() },
+        ComposableReplaceableView("RowSample") { RowSample() },
         )
 )

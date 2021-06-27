@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun ButtonExample() {
+fun ButtonSample() {
     Button(onClick = { /* Do something! */ }, colors = ButtonDefaults.textButtonColors(
         backgroundColor = Color.Red
     )) {

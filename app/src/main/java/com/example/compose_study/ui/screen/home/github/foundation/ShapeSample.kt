@@ -42,7 +42,7 @@ fun CircleShapeDemo() {
 }
 
 @Composable
-fun ShapeDemo() {
+fun ShapeSample() {
     Column {
         Text("CircleShapeDemo:")
         CircleShapeDemo()

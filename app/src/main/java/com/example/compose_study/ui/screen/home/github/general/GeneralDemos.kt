@@ -3,10 +3,10 @@ package com.example.compose_study.ui.screen.home.github.general
 import com.example.compose_study.ui.screen.home.replaceable.ComposableReplaceableView
 import com.example.compose_study.ui.screen.home.replaceable.ReplaceableViewCategory
 
-val GeneralDemos = ReplaceableViewCategory(
+val GeneralSamples = ReplaceableViewCategory(
     "General",
     listOf(
-        ComposableReplaceableView("LifecycleDemo") { LifecycleDemo() },
-        ComposableReplaceableView("PaddingDemo") { PaddingDemo() },
+        ComposableReplaceableView("LifecycleSample") { LifecycleSample() },
+        ComposableReplaceableView("PaddingSample") { PaddingSample() },
         )
 )

@@ -7,7 +7,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.text.input.TextFieldValue
 
 @Composable
-fun BaseTextFieldDemo() {
+fun BaseTextFieldSample() {
     var textState by remember { mutableStateOf(TextFieldValue()) }
 
     Column {

@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 
 
 @Composable
-fun PaddingDemo() {
+fun PaddingSample() {
 
     Column {
         Text("TextWithoutPadding")

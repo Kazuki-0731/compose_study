@@ -15,7 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 
 @Preview
 @Composable
-fun DropdownDemo() {
+fun DropdownSample() {
     var expanded by remember { mutableStateOf(false) }
     val items = listOf("A", "B", "C", "D", "E", "F")
     val disabledValue = "B"
