@@ -1,5 +1,6 @@
 package com.example.compose_study.ui.screen.replaceable
 
+import android.content.Context
 import android.content.SharedPreferences
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
@@ -18,5 +19,14 @@ class ReplaceableColors {
     var light: Colors by mutableStateOf(lightColors())
     var dark: Colors by mutableStateOf(darkColors())
 
+
+}
+
+/**
+ * Returns a [ReplaceableColors] from the values saved to [SharedPreferences]. If a given color is
+ * not present in the [SharedPreferences], its default value as defined in [Colors]
+ * will be returned.
+ */
+fun ReplaceableColors.loadColorsFromSharedPreferences(context: Context) {
 
 }
