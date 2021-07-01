@@ -1,18 +1,20 @@
 package com.example.compose_study.ui.screen.animation
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.ViewModelProvider
 import com.example.compose_study.databinding.FragmentAnimationBinding
-import com.example.compose_study.ui.screen.animation.sample.DotLoading
+import com.example.compose_study.ui.common.FilterMode
+import com.example.compose_study.ui.common.Navigator
+import com.example.compose_study.ui.screen.replaceable.*
 
 class AnimationFragment : Fragment() {
 
@@ -32,10 +34,60 @@ class AnimationFragment : Fragment() {
 
         binding.apply {
             composeView.setContent {
-                DotLoading(modifier = Modifier
-                    .size(30.dp, 30.dp)
-                    .wrapContentSize(Alignment.Center)
-                )
+                val activityStarter = fun(replaceableView: ActivityReplaceableView<*>) {
+                    startActivity(Intent(requireActivity(), replaceableView.activityClass.java))
+                }
+                /**
+                 * Bundle に保存可能なすべての値を自動的に保存します。
+                 * その他の値については、カスタムのセーバーオブジェクトに渡すことができます。
+                 */
+                val navigator = rememberSaveable(
+                    saver = Navigator.Saver(AnimationRootCategory, requireActivity().onBackPressedDispatcher, activityStarter)
+                ) {
+                    Navigator(AnimationRootCategory, requireActivity().onBackPressedDispatcher, activityStarter)
+                }
+                //状態は再コンポーズをまたいで保持
+                val replaceableColors = remember {
+                    ReplaceableColors().also {
+                        lifecycle.addObserver(
+                            LifecycleEventObserver { _, event ->
+                                if (event == Lifecycle.Event.ON_RESUME) {
+                                    it.loadColorsFromSharedPreferences(requireActivity())
+                                }
+                            }
+                        )
+                    }
+                }
+                ReplaceableTheme(replaceableColors, requireActivity().window) {
+                    val filteringMode = rememberSaveable(
+                        saver = FilterMode.Saver(requireActivity().onBackPressedDispatcher)
+                    ) {
+                        FilterMode(requireActivity().onBackPressedDispatcher)
+                    }
+                    val onStartFiltering = { filteringMode.isFiltering = true }
+                    val onEndFiltering = { filteringMode.isFiltering = false }
+                    ReplaceableApp(
+                        currentView = navigator.currentReplaceableView,
+                        backStackTitle = navigator.backStackTitle,
+                        isFiltering = filteringMode.isFiltering,
+                        onStartFiltering = onStartFiltering,
+                        onEndFiltering = onEndFiltering,
+                        onNavigateToReplaceable = { replaceable ->
+                            if (filteringMode.isFiltering) {
+                                onEndFiltering()
+                                navigator.popAll()
+                            }
+                            navigator.navigateTo(replaceable)
+                        },
+                        canNavigateUp = !navigator.isRoot,
+                        onNavigateUp = {
+                            requireActivity().onBackPressed()
+                        },
+                        launchSettings = {
+                            // startActivity(Intent(this, DemoSettingsActivity::class.java))
+                        }
+                    )
+                }
             }
         }
 

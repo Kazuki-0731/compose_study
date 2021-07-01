@@ -111,20 +111,3 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 }
-
-@Composable
-private fun ReplaceableTheme(
-    replaceableColors: ReplaceableColors,
-    window: Window,
-    content: @Composable () -> Unit
-) {
-    MaterialTheme() {
-        val statusBarColor = with(MaterialTheme.colors) {
-            (if (isLight) primaryVariant else Color.Black).toArgb()
-        }
-        SideEffect {
-            window.statusBarColor = statusBarColor
-        }
-        content()
-    }
-}

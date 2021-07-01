@@ -6,26 +6,31 @@ import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 private const val DURATION = 500
 private const val DOT_SPACE_FACTOR = 0.5f
 
+@Preview
 @Composable
-fun DotLoading(
-    modifier: Modifier,
-    dotsize: Dp = 24.dp,
-    dotColor: Color = MaterialTheme.colors.primary
-){
+fun DotLoading(){
+    val modifier: Modifier = Modifier
+        .size(30.dp, 30.dp)
+        .wrapContentSize(Alignment.Center)
+    val dotsize: Dp = 24.dp
+    val dotColor: Color = MaterialTheme.colors.primary
     val infiniteTraqnsition = rememberInfiniteTransition()
     val dotSpace: Dp = dotsize * DOT_SPACE_FACTOR
 
