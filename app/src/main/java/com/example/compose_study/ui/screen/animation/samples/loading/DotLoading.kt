@@ -1,4 +1,4 @@
-package com.example.compose_study.ui.screen.animation.sample
+package com.example.compose_study.ui.screen.animation.samples
 
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
