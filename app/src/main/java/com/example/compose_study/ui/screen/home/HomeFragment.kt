@@ -5,12 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
-import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.toArgb
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
@@ -18,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.compose_study.databinding.FragmentHomeBinding
 import com.example.compose_study.ui.common.FilterMode
 import com.example.compose_study.ui.common.Navigator
-import com.example.compose_study.ui.screen.replaceable.*
+import com.example.compose_study.ui.common.replaceable.*
 
 /**
  * FragmentとComposeの共存

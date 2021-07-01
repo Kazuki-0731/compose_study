@@ -7,9 +7,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.listSaver
 import androidx.compose.runtime.setValue
-import com.example.compose_study.ui.screen.replaceable.ActivityReplaceableView
-import com.example.compose_study.ui.screen.replaceable.ReplaceableView
-import com.example.compose_study.ui.screen.replaceable.ReplaceableViewCategory
+import com.example.compose_study.ui.common.replaceable.ActivityReplaceableView
+import com.example.compose_study.ui.common.replaceable.ReplaceableView
+import com.example.compose_study.ui.common.replaceable.ReplaceableViewCategory
 
 /**
  * Activityを継承したカスタムクラスを保存

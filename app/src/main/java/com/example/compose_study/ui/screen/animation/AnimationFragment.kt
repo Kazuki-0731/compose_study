@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.compose_study.databinding.FragmentAnimationBinding
 import com.example.compose_study.ui.common.FilterMode
 import com.example.compose_study.ui.common.Navigator
-import com.example.compose_study.ui.screen.replaceable.*
+import com.example.compose_study.ui.common.replaceable.*
 
 class AnimationFragment : Fragment() {
 

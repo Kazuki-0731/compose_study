@@ -1,8 +1,8 @@
 package com.example.compose_study.ui.screen.animation
 
 import com.example.compose_study.ui.screen.animation.samples.DotLoading
-import com.example.compose_study.ui.screen.replaceable.ComposableReplaceableView
-import com.example.compose_study.ui.screen.replaceable.ReplaceableViewCategory
+import com.example.compose_study.ui.common.replaceable.ComposableReplaceableView
+import com.example.compose_study.ui.common.replaceable.ReplaceableViewCategory
 
 val AnimationSamples = ReplaceableViewCategory(
     "AnimationSamples",

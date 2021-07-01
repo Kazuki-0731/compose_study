@@ -1,4 +1,4 @@
-package com.example.compose_study.ui.screen.replaceable
+package com.example.compose_study.ui.common.replaceable
 
 import android.view.Window
 import androidx.compose.material.MaterialTheme

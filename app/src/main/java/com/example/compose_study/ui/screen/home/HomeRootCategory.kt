@@ -7,7 +7,7 @@ import com.example.compose_study.ui.screen.home.jetpack_compose.general.GeneralS
 import com.example.compose_study.ui.screen.home.jetpack_compose.layout.LayoutSample
 import com.example.compose_study.ui.screen.home.jetpack_compose.material.MaterialSample
 import com.example.compose_study.ui.screen.home.jetpack_compose.other.OtherSample
-import com.example.compose_study.ui.screen.replaceable.ReplaceableViewCategory
+import com.example.compose_study.ui.common.replaceable.ReplaceableViewCategory
 
 /**
  * [ReplaceableViewCategory] containing all the top level demo categories.

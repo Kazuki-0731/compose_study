@@ -1,4 +1,4 @@
-package com.example.compose_study.ui.screen.replaceable
+package com.example.compose_study.ui.common.replaceable
 
 import android.app.Activity
 import androidx.activity.ComponentActivity

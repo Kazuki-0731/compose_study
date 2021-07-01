@@ -1,8 +1,8 @@
 package com.example.compose_study.ui.screen.home.jetpack_compose.material
 
 import SnackbarSample
-import com.example.compose_study.ui.screen.replaceable.ComposableReplaceableView
-import com.example.compose_study.ui.screen.replaceable.ReplaceableViewCategory
+import com.example.compose_study.ui.common.replaceable.ComposableReplaceableView
+import com.example.compose_study.ui.common.replaceable.ReplaceableViewCategory
 import com.example.compose_study.ui.screen.home.jetpack_compose.material.button.ButtonSample
 import com.example.compose_study.ui.screen.home.jetpack_compose.material.card.CardSample
 import com.example.compose_study.ui.screen.home.jetpack_compose.material.checkbox.CheckBoxSample

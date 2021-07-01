@@ -1,4 +1,4 @@
-package com.example.compose_study.ui.screen.replaceable
+package com.example.compose_study.ui.common.replaceable
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
