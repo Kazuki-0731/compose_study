@@ -22,7 +22,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.ViewModelProvider
 import com.example.compose_study.databinding.FragmentHomeBinding
-import com.example.compose_study.ui.screen.home.replaceable.*
+import com.example.compose_study.ui.screen.replaceable.*
 
 /**
  * FragmentとComposeの共存
