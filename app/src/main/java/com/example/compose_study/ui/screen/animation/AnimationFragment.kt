@@ -42,9 +42,9 @@ class AnimationFragment : Fragment() {
                  * その他の値については、カスタムのセーバーオブジェクトに渡すことができます。
                  */
                 val navigator = rememberSaveable(
-                    saver = Navigator.Saver(AnimationRootCategory, requireActivity().onBackPressedDispatcher, activityStarter)
+                    saver = Navigator.Saver(AnimationSamples, requireActivity().onBackPressedDispatcher, activityStarter)
                 ) {
-                    Navigator(AnimationRootCategory, requireActivity().onBackPressedDispatcher, activityStarter)
+                    Navigator(AnimationSamples, requireActivity().onBackPressedDispatcher, activityStarter)
                 }
                 //状態は再コンポーズをまたいで保持
                 val replaceableColors = remember {
