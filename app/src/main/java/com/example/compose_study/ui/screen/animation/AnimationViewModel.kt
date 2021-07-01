@@ -1,4 +1,4 @@
-package com.example.compose_study.ui.screen.animation_test
+package com.example.compose_study.ui.screen.animation
 
 import androidx.lifecycle.ViewModel
 

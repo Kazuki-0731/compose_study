@@ -1,18 +1,13 @@
 package com.example.compose_study.ui.screen.home
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
-import androidx.activity.OnBackPressedCallback
-import androidx.activity.OnBackPressedDispatcher
 import androidx.compose.material.*
 import androidx.compose.runtime.*
-import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
@@ -59,9 +54,9 @@ class HomeFragment : Fragment() {
                  * その他の値については、カスタムのセーバーオブジェクトに渡すことができます。
                  */
                 val navigator = rememberSaveable(
-                    saver = Navigator.Saver(AllRootCategory, requireActivity().onBackPressedDispatcher, activityStarter)
+                    saver = Navigator.Saver(HomeRootCategory, requireActivity().onBackPressedDispatcher, activityStarter)
                 ) {
-                    Navigator(AllRootCategory, requireActivity().onBackPressedDispatcher, activityStarter)
+                    Navigator(HomeRootCategory, requireActivity().onBackPressedDispatcher, activityStarter)
                 }
                 //状態は再コンポーズをまたいで保持
                 val replaceableColors = remember {

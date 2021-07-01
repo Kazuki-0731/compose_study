@@ -34,6 +34,7 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import com.example.compose_study.ui.screen.home.HomeRootCategory
 
 @Composable
 fun ReplaceableApp(
@@ -82,7 +83,7 @@ private fun ReplaceableContent(
         Surface(modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
             if (filtering) {
                 ReplaceableFilter(
-                    launchableReplaceableViews = AllRootCategory.allLaunchableReplaceables(),
+                    launchableReplaceableViews = HomeRootCategory.allLaunchableReplaceables(),
                     filterText = filterText,
                     onNavigate = onNavigate
                 )
